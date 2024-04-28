@@ -1,22 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginResponse } from '../types/login-response.type';
 import { tap } from 'rxjs';
+import { ResetPasswordResponse } from '../../types/reset-password-response.type';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class ResetPasswordService {
   apiUrl: string = "http://localhost:8080/api/v1/auth";
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  login(email: string, password: string) {
-    return this.httpClient.post<LoginResponse>(this.apiUrl+"/login", { email, password }).pipe(
+  resetPassword(email: string) {
+    return this.httpClient.post<ResetPasswordResponse>(this.apiUrl+"/reset-password", { email }).pipe(
       tap((value) => {
-        sessionStorage.setItem("auth-token", value.token)
+        sessionStorage.setItem("password-token", value.token)
       })
     )
   }

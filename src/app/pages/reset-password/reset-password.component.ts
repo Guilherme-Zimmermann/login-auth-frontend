@@ -3,16 +3,15 @@ import { DefaultLayoutComponent } from '../../components/default-layout/default-
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login/login.service';
 import { ToastrService } from 'ngx-toastr';
+import { ResetPasswordService } from '../../services/reset-password/reset-password.service';
 
-interface LoginForm {
-  email: FormControl,
-  password: FormControl
+interface ResetPasswordForm {
+  email: FormControl
 }
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-reset-password',
   standalone: true,
   imports: [
     DefaultLayoutComponent,
@@ -20,36 +19,35 @@ interface LoginForm {
     PrimaryInputComponent,
   ],
   providers: [
-    LoginService
+    ResetPasswordService
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './reset-password.component.html',
+  styleUrl: './reset-password.component.scss'
 })
-export class LoginComponent {
-  loginForm: FormGroup<LoginForm>
+export class ResetPasswordComponent {
+  resetPasswordForm: FormGroup<ResetPasswordForm>
 
   constructor(
     private router: Router,
-    private loginService: LoginService,
+    private resetPasswordService: ResetPasswordService,
     private toastService: ToastrService
   ) {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    this.resetPasswordForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email])
     })
   }
 
   submit() {
-    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+    this.resetPasswordService.resetPassword(this.resetPasswordForm.value.email).subscribe({
       next: () => {
-        this.toastService.success("Login efetuado com sucesso!")
-        this.router.navigate(["home"])
+        this.toastService.success("Insira a nova senha!")
+        this.router.navigate(["new-password"])
       },
       error: () => this.toastService.error("Erro inesperado")
     });
   }
 
   navigate() {
-    this.router.navigate(["signup"]);
+    this.router.navigate(["login"]);
   }
 }

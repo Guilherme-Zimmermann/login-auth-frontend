@@ -1,7 +1,7 @@
 <app-default-layout
-  titleInput="Login into your account"
-  primaryButtonText="Login Now"
-  secondaryButtonText="Signup Now"
+  titleInput="Faça login na sua conta"
+  primaryButtonText="Entrar"
+  secondaryButtonText="Registrar-se"
   (submit)="submit()"
   (navigate)="navigate()"
   [disablePrimaryButton]="!loginForm.valid"
@@ -25,6 +25,6 @@
     >
       <img src="/assets/svg/lock-icon.svg" alt="">
     </app-primary-input>
-    <a href="">Esqueceu a senha?</a>
+    <a href="reset-password" >Esqueceu a senha?</a>
   </form>
 </app-default-layout>
