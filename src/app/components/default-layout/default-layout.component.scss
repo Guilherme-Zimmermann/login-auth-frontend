@@ -14,15 +14,20 @@ main {
     height: 100vh;
   }
 
+  .textTitle {
+    color: $text-secondary-color;
+  }
+
   .mainSection {
     gap: 0.5rem;
 
     flex-grow: 1;
 
-    background-color: $tertiary-color;
+    background-color: $bg-color;
   }
 
   .formSection {
+    background-color: $bg-secondary-color;
     flex-grow: 0.4;
     padding: 0 2rem;
 
@@ -52,13 +57,13 @@ main {
         width: 100%;
 
         font-size: 0.875rem;
-        color: $tertiary-color;
+        color: $text-secondary-color;
         font-weight: 400;
 
         div {
           flex-grow: 1;
           height: 2px;
-          background-color: $tertiary-color;
+          background-color: $text-secondary-color;
         }
       }
 
