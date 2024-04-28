@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './default-layout.component.scss'
 })
 export class DefaultLayoutComponent {
-  @Input() title: string = "";
+  @Input() titleInput: string = "";
   @Input() primaryButtonText: string = "";
   @Input() secondaryButtonText: string = "";
   @Input() disablePrimaryButton: boolean = true;
