@@ -16,7 +16,7 @@ export const routes: Routes = [
     component: SignupComponent
   },
   {
-    path: "home",
+    path: "",
     component: HomeComponent,
     canActivate: [AuthGuardService],
   },
