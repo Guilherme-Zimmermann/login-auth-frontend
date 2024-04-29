@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SignupService {
-  apiUrl: string = "http://localhost:8080/api/v1/auth";
+  apiUrl: string = "https://login-auth-api-uflk.onrender.com/api/v1/auth";
 
   constructor(
     private httpClient: HttpClient

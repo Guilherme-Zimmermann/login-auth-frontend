@@ -7,7 +7,7 @@ import { ResetPasswordResponse } from '../../types/reset-password-response.type'
   providedIn: 'root'
 })
 export class ResetPasswordService {
-  apiUrl: string = "http://localhost:8080/api/v1/auth";
+  apiUrl: string = "https://login-auth-api-uflk.onrender.com";
 
   constructor(
     private httpClient: HttpClient

@@ -43,7 +43,7 @@ export class LoginComponent {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
       next: () => {
         this.toastService.success("Login efetuado com sucesso!")
-        this.router.navigate(["home"])
+        this.router.navigate([""])
       },
       error: () => this.toastService.error("Erro inesperado")
     });
