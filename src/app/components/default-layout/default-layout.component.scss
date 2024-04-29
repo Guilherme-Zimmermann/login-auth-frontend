@@ -93,4 +93,16 @@ main {
       }
     }
   }
+  @media (max-width: 720px) {
+    flex-direction: column;
+    background-color: $bg-color;
+
+    .mainSection {
+      display: none;
+    }
+
+    .formSection {
+      flex-grow: 1;
+    }
+  }
 }
